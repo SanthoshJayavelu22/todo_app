@@ -77,7 +77,7 @@ const Todo = () => {
         .then((res) => {
           if (res.ok) {
           const  updatedTodos =  todos.map((item)=>{
-              if(item._id === editId){
+              if(item._id == editId){
                 item.title = editTitle;
                 item.description = editDescription;
 
@@ -184,7 +184,7 @@ const Todo = () => {
           {todos.map((item) => (
             <div class="bg-inputBg rounded-md p-5 sm:p-3">
               <div class="w-1/7 float-right ">
-                {editId === -1 || editId !== item._id ? (
+                {editId == -1 || editId !== item._id ? (
                   <button
                     type="button"
                     class="py-2 px-2 me-2 mb-2 text-md font-medium text-gray-900 focus:outline-none bg-btnBg rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "
@@ -202,7 +202,7 @@ const Todo = () => {
                   </button>
                 )} 
 
-             {editId === -1 || editId !== item._id ? (
+             {editId == -1 || editId !== item._id ? (
                 <button
                   type="button"
                   class="py-2 px-2  me-2 mb-2 text-md font-medium text-gray-900 focus:outline-none bg-btnBg rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 " onClick={()=> handleDelete(item._id)}
@@ -221,7 +221,7 @@ const Todo = () => {
                 </button>)}
               </div>
 
-              {editId === -1 || editId !== item._id ? (
+              {editId == -1 || editId !== item._id ? (
                 <>
                   <h1 class="text-fontPrimary font-semibold text-lg mb-2 w-6/7 ">
                     {item.title}
