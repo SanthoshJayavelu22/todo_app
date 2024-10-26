@@ -8,7 +8,7 @@ const Todo = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [editId, setEditId] = useState(-1);
-  const apiUrl = "https://todo-backend-ko40.onrender.com";
+  const apiUrl = "http://localhost:5000";
 
   //edit
 
@@ -18,29 +18,29 @@ const Todo = () => {
   const handleSubmit = () => {
     setError("");
     if (title.trim() !== "" && description.trim() !== "") {
-      fetch(apiUrl + "/todo", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, description }),
-      })
-        .then((res) => {
-          if (res.ok) {
-            setTodos([...todos, { title, description }]);
-            setTitle("");
-            setDescription("");
-            setMessage("Item Added Successfully");
-            setTimeout(() => {
-              setMessage("");
-            }, 3000);
-          } else {
-            setError("Unable to Create Todo Item");
-          }
-        })
-        .catch(() => {
-          setError("Unable to create Todo Item");
-        });
+fetch(apiUrl + "/todo", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ title, description }),
+})
+  .then((res) => res.json())
+  .then((newTodo) => {
+    if (newTodo) {
+      setTodos([...todos, newTodo]); 
+      setTitle("");
+      setDescription("");
+      setMessage("Item Added Successfully");
+      setTimeout(() => setMessage(""), 3000);
+    } else {
+      setError("Unable to Create Todo Item");
+    }
+  })
+  .catch(() => {
+    setError("Unable to create Todo Item");
+  });
+
     }
   };
 
