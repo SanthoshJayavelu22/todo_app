@@ -8,7 +8,7 @@ const Todo = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [editId, setEditId] = useState(-1);
-  const apiUrl = "https://appsail-50023175614.development.catalystappsail.in";
+  const apiUrl = "https://todo-backend-ko40.onrender.com";
 
   //edit
 
