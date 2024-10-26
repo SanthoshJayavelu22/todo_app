@@ -86,7 +86,7 @@ const Todo = () => {
             })
             setTodos( updatedTodos);
             setEditTitle("");
-            setDescription("");
+            setEditDescription("");
             setMessage("Item Updated Successfully");
             setTimeout(() => {
               setMessage("");
