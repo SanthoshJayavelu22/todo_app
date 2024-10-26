@@ -8,7 +8,7 @@ const Todo = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [editId, setEditId] = useState(-1);
-  const apiUrl = "http://localhost:5000";
+  const apiUrl = "https://todo-backend-ko40.onrender.com";
 
   //edit
 
